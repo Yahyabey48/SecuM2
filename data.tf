@@ -5,3 +5,5 @@ data "aws_iam_role" "ec2_role_ssm" {
 data "aws_iam_role" "role_cloudwatch_cloudtrail" {
   name = "role_cloudwatch_cloudtrail"
 }
+
+data "aws_caller_identity" "current" {}

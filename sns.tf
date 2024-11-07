@@ -24,12 +24,46 @@ resource "aws_cloudwatch_event_rule" "ec2_state_change" {
 }
 
 # CloudWatch Event Target pointing to SNS Topic
-
-
-resource "aws_cloudwatch_event_target" "sns_target_role_attachment" {
+resource "aws_cloudwatch_event_target" "sns_target" {
   rule      = aws_cloudwatch_event_rule.ec2_state_change.name
   target_id = "SendToSNS"
   arn       = aws_sns_topic.sns_topic.arn
-  //role_arn  = data.aws_iam_role.role_cloudwatch_cloudtrail.arn
-  // aws_iam_role.eventbridge_publish_role.arn
+}
+
+resource "aws_sns_topic_policy" "sns_topic_policy" {
+  arn    = aws_sns_topic.sns_topic.arn
+  policy = jsonencode({
+    Version = "2008-10-17",
+    Id      = "__default_policy_ID",
+    Statement = [
+      {
+        Sid       = "__default_statement_ID",
+        Effect    = "Allow",
+        Principal = { "AWS" : "*" },
+        Action    = [
+          "SNS:GetTopicAttributes",
+          "SNS:SetTopicAttributes",
+          "SNS:AddPermission",
+          "SNS:RemovePermission",
+          "SNS:DeleteTopic",
+          "SNS:Subscribe",
+          "SNS:ListSubscriptionsByTopic",
+          "SNS:Publish"
+        ],
+        Resource  = aws_sns_topic.sns_topic.arn,
+        Condition = {
+          StringEquals = {
+            "AWS:SourceOwner" = data.aws_caller_identity.current.account_id
+          }
+        }
+      },
+      {
+        Sid       = "AllowEventBridgeToPublish",
+        Effect    = "Allow",
+        Principal = { Service = "events.amazonaws.com" },
+        Action    = "sns:Publish",
+        Resource  = aws_sns_topic.sns_topic.arn
+      }
+    ]
+  })
 }
