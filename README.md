@@ -6,30 +6,30 @@
 
 >Installation AWS CLI & Terraform<br>
 ```bash
-sudo apt update && sudo apt upgrade -y<br>
-sudo apt install curl<br>
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"<br>
-sudo apt-get install unzip<br>
-unzip awscliv2.zip<br>
-sudo ./aws/install<br>
-sudo apt install -y gnupg software-properties-common<br>
-wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg<br>
-echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list<br>
-sudo apt install terraform -y<br><br>
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt-get install unzip
+unzip awscliv2.zip
+sudo ./aws/install
+sudo apt install -y gnupg software-properties-common
+wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt install terraform -y
 ```
 
 ## Vérfier l'installation<br><br>
 
 ```bash
-terraform -v<br>
-aws -v<br><br>
+terraform -v
+aws -v
 ```
 
 ## Configurer l'environnement<br><br>
 
 ```bash
-aws configure<br>
-terraform init<br><br>
+aws configure
+terraform init
 ```
 
 ## Lancer le projet<br>
