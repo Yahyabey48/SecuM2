@@ -5,6 +5,7 @@
 ## Pré-requis pour lancer le projet (Debian 12)<br><br>
 
 >Installation AWS CLI & Terraform<br>
+'''bash
 sudo apt update && sudo apt upgrade -y<br>
 sudo apt install curl<br>
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"<br>
