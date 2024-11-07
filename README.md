@@ -35,5 +35,5 @@ terraform init
 ## Lancer le projet<br>
 
 ```bash
-terraform apply<br>
+terraform apply
 ```
