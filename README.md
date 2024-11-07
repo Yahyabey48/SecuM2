@@ -37,3 +37,13 @@ terraform init
 ```bash
 terraform apply
 ```
+
+## Contributeurs
+
+**Adam SCHRICKE<br>
+Ahmed YAHYA BEY<br>
+Ismaël-Balthazar OUCHEBOUQ<br>
+Djamal-Din CAMILLE<br>
+Christopher GROULT<br>
+Zakaria LAHCENE<br>
+Samuel DILLMANN<br>**
