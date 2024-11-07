@@ -18,7 +18,7 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 sudo apt install terraform -y
 ```
 
-## Vérfier l'installation<br><br>
+## Vérifier l'installation<br><br>
 
 ```bash
 terraform -v
