@@ -7,7 +7,7 @@ resource "aws_sns_topic" "sns_topic" {
 resource "aws_sns_topic_subscription" "sns_email" {
   topic_arn = aws_sns_topic.sns_topic.arn
   protocol  = "email"
-  endpoint  = "zlahcene1@myges.fr"
+  endpoint  = var.mail
 }
 
 # CloudWatch Event Rule to monitor EC2 instance state changes
