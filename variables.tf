@@ -5,7 +5,7 @@ variable "region" {
 
 variable "mail" {
   type    = string
-  default = "sdillmann@myges.fr"
+  default = "zlahcene1@myges.fr"
 }
 
 variable "ip_vpc" {
